@@ -2,7 +2,6 @@ package studentBackup.driver;
 
 public class Driver
 {
-<<<<<<< HEAD
 	private static final int errorVal = 1;
 	
 	private static String inputFilename;
@@ -62,35 +61,4 @@ public class Driver
 			" not a valid integer!");
 			System.exit(errorVal);
 		}
-=======
-	private String inputFilename;
-	private int UPDATE_VALUE;
-
-	private int errorVal = 1;
-
-	//Input parameters: 
-	//	String inputFilename, int UPDATE_VALUE
-	public static void main(String[] args)
-	{
-		
-	}
-
-	public Boolean parseCommandLineArgs(String args[])
-	{
-		if(args.length() != 2)
-		{
-			System.out.println("ERROR: Inproper number"
-				+ " of arguments passed!");
-			System.exit(errorVal);	
-		}
-		/*try
-		{
-			
-		}
-		catch(Exception e)
-		{
-
-		}*/
->>>>>>> d1675f392180703435b0bd39ad0ef9d250583b7a
-	}
 }
