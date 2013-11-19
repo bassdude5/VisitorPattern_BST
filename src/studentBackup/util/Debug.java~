@@ -1,4 +1,4 @@
-package studentRecords.util.Debug;
+package studentRecords.util;
 
 public class Debug
 {

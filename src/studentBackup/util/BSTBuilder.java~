@@ -1,4 +1,34 @@
+package studentBackup.util;
+
+import studentBackup.util.Debug;
+import studentBackup.bst.Node;
+
 public class BSTBuilder
 {
+	private Debug debug;
 
+	public BSTBuilder(Debug debug)
+	{
+		this.debug = debug;
+	}
+
+	public Node insert(Node inNode, int value)
+	{
+		//If there is no root, create a root
+		if(inNode == null)
+		{
+			return new Node(value);	
+		}
+		else
+		{
+			if(value < inNode.getBNum())
+			{
+				insert(inNode.getLeftChild(), value);	
+			}
+			else
+			{
+				insert(inNode.getRightChild(), value);
+			}
+		}
+	}
 }
