@@ -1,17 +1,39 @@
 package studentBackup.driver;
-
+//---------------------------------------------------------------------
+import studentBackup.util.Debug;
+import studentBackup.bst.BST;
+import studentBackup.util.BSTBuilder;
+//---------------------------------------------------------------------
 public class Driver
 {
 	private static final int errorVal = 1;
+	private static Debug debug;
 	
 	private static String inputFilename;
 	private static int UPDATE_VALUE;
 
 	public static void main(String[] args)
 	{
+		BST tree1;
+		BST tree2;
+		BST tree3;
+		
+		BSTBuilder treeBuilder;
+
+		//Initalize the debug class
+		debug = new Debug();
+
+		//Parse the input and set the class variables
 		parseCommandLineInput(args);
-	
-		//Use BSTBuilder to build 3 trees
+		
+
+		//Use BSTBuilder to build 3 trees	
+		treeBuilder = new BSTBuilder(debug, inputFilename);
+
+		/*tree1 = new BST(debug);
+		tree2 = new BST(debug);
+		tree3 = new BST(debug);
+		*/
 
 		//Call inorder traversal to print the values from the three trees
 		//Call the visitor to print the sum of all the B-Numbers in the three trees
@@ -26,8 +48,6 @@ public class Driver
 	**/
 	private static final void parseCommandLineInput(String[] args)
 	{
-		int dVal;
-
 		//Checks that the number of arguments passed is correct
 		if(args.length != 3)
 		{
@@ -53,7 +73,7 @@ public class Driver
 		//Parse the debug value
 		try
 		{
-			dVal = Integer.parseInt(args[2]);
+			debug.setDebugVal(Integer.parseInt(args[2]));
 		}
 		catch(Exception e)
 		{
@@ -62,4 +82,5 @@ public class Driver
 			System.exit(errorVal);
 		}
 	}
-}
+}//End of Driver class
+//---------------------------------------------------------------------

@@ -52,8 +52,8 @@
         <java jar="${BUILD}/jar/studentBackup.jar"  fork="true">
 	  <!-- Input Filename: -->
           <arg value="MyAllTypes.txt"/>
-	  <!-- Output Filename: -->
-	  <arg value="MyAllTypesCopy.txt"/>
+	  <!-- UPDATE_VALUE: -->
+	  <arg value="1"/>
 	  <!-- Debug Value: -->
 	  <arg value="0"/>
         </java>

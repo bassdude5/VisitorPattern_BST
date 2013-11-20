@@ -33,24 +33,27 @@ public class BST
 	*	This method inserts a node into the BST
 	*	 according the BST rules
 	**/
-	public Node insert(Node inNode, int value)
+	public Node insert(Node root, int value)
 	{
 		//If there is no root, create a root
-		if(inNode == null)
+		if(root == null)
 		{
-			return new Node(value);	
+			return null;
+			//return new Node(value);	
 		}
 		else
 		{
-			if(value < inNode.getBNum())
+			if(value < root.getBNum())
 			{
-				insert(inNode.getLeftChild(), value);	
+				insert(root.getLeftChild(), value);	
 			}
 			else
 			{
-				insert(inNode.getRightChild(), value);
+				insert(root.getRightChild(), value);
 			}
 		}
+	
+		return null;
 	}
 
 	/**
