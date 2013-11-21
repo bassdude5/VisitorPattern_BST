@@ -33,36 +33,91 @@ public class BST
 	*	This method inserts a node into the BST
 	*	 according the BST rules
 	**/
-	public Node insert(Node root, int value)
+	public void insert(Node root, int bNum)
 	{
-		//If there is no root, create a root
+		//Checks for a null root node,
+		// this is only used when the tree is completely
+		// empty.
 		if(root == null)
 		{
-			return null;
-			//return new Node(value);	
+			this.root = new Node(debug, bNum);
 		}
 		else
 		{
-			if(value < root.getBNum())
+			if(bNum < root.getBNum())
 			{
-				insert(root.getLeftChild(), value);	
+				if(root.getLeftChild() == null)
+				{
+					root.setLeftChild(new Node(debug, bNum));
+				}
+				else
+				{
+					insert(root.getLeftChild(), bNum);
+				}
 			}
 			else
 			{
-				insert(root.getRightChild(), value);
+				if(root.getRightChild() == null)
+				{
+					root.setRightChild(new Node(debug, bNum));
+				}
+				else
+				{
+					insert(root.getRightChild(), bNum);
+				}
 			}
 		}
-	
-		return null;
+	}
+
+
+	/**
+	*	This method visits and prints the b-number for each
+	*	 node in the tree, by traversing the tree in pre-order
+	**/
+	public void printPreOrder()
+	{
+		//1) Visit root
+		//2) Traverse left subtree
+		//3) Traverse right subtree
 	}
 
 	/**
 	*	This method visits and prints the b-number for each 
-	*	 node in the tree
+	*	 node in the tree, by traversing the tree in-order
 	**/
 	public void printInOrder()
 	{
+		//1) Traverse left subtree
+		//2) Visit root
+		//3) Traverse right subtree
+	}
 
+	/**
+	*	This method visits and prints the b-number for each
+	*	 node in the tree, by traversing the tree in post-order
+	**/
+	public void printPostOrder()
+	{
+		//1) Traverse left subtree
+		//2) Traverse right subtree
+		//3) Visit root
+	}
+
+	/**
+	*	This method is the getter for the tree's root node
+	*	@return Returns the root node of the tree
+	**/
+	public Node getRoot()
+	{
+		return root;
+	}
+
+	/**
+	*	This method is the setter for the tree's root
+	**/
+	public void setRoot(Node root)
+	{
+		this.root = root;
 	}
 }//End of BST class
 //---------------------------------------------------------------------

@@ -52,8 +52,9 @@ public class BSTBuilder
 	/**
 	*	Populates all the current trees in the hash map
 	**/
-	public void populateAllTrees()
+	public void populateAllTrees() throws IOException
 	{
+		BST temp;
 		int value = 0;
 		String lineIn;
 
@@ -77,12 +78,14 @@ public class BSTBuilder
 
 					System.exit(errorVal);
 				}
-
+			
 			//Iterate through all trees in the Hash,
 			// calling insert on each tree
 			for (String key : trees.keySet()) 
 			{
-				//trees.get(key).insert(value);
+				temp = trees.get(key);
+				//Inserts 
+				temp.insert(temp.getRoot(), value);
 			}
 
 				lineIn = inputFile.readLine();
@@ -94,6 +97,11 @@ public class BSTBuilder
 			//Catch for no file or problem opening file
 			System.out.println("ERROR: file not found!");
 			System.exit(errorVal);
+		}
+		finally
+		{
+			//Closes the input file
+			inputFile.close();	
 		}
 	}
 
@@ -111,9 +119,10 @@ public class BSTBuilder
 	**/
 	public void printAllTrees()
 	{
+		//Iterates through all trees in the hashmap
 		for (String key : trees.keySet()) 
 		{
-    			// ...
+			
 		}
 	}
 
