@@ -135,6 +135,19 @@ public class BSTBuilder
 	}
 
 	/**
+	*	This method prints the names of all trees
+	*	 that this class currently contains
+	**/
+	public void printTreeNames()
+	{
+		//Iterates through all trees in the hashmap
+		for (String key : trees.keySet()) 
+		{
+			
+		}	
+	}
+
+	/**
 	*	This method clears all trees
 	**/
 	public void clearAllTrees()
