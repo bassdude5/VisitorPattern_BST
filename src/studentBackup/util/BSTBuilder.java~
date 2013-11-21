@@ -143,7 +143,7 @@ public class BSTBuilder
 		//Iterates through all trees in the hashmap
 		for (String key : trees.keySet()) 
 		{
-			
+			System.out.println(key);	
 		}	
 	}
 

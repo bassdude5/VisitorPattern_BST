@@ -32,7 +32,10 @@ public class Driver
 		treeBuilder.createTree("tree3");
 
 		//Populate all of the trees from the input file
-		treeBuilder.populateAllTrees();
+		//treeBuilder.populateAllTrees();
+
+		//Prints all tree names in the treeBuilder instance
+		treeBuilder.printTreeNames();
 		
 		
 
