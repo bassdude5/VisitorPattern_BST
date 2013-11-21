@@ -13,6 +13,8 @@ import java.io.IOException;
 //---------------------------------------------------------------------
 public class BSTBuilder
 {
+	private final int errorVal = 2;
+
 	private Debug debug;
 	private String inputFilename;
 	private Map<String, BST> trees = null;
@@ -54,7 +56,27 @@ public class BSTBuilder
 	{
 		int value = 0;
 		String lineIn;
-		while(!eof)
+
+		try
+		{
+			inputFile = new BufferedReader(new FileReader(inputFilename));
+
+			lineIn = inputFile.readLine();
+
+			while(lineIn != null)
+			{	
+				System.out.println(lineIn);
+				lineIn = inputFile.readLine();
+			}	
+
+		}
+		catch(IOException e)
+		{
+			System.out.println("ERROR: file not found!");
+			System.exit(errorVal);
+		}
+
+		/*while(!eof)
 		{
 			//Readline from file
 			//Parse to integer
@@ -63,7 +85,7 @@ public class BSTBuilder
 			{
 				//trees.get(key).insert(value);
 			}
-		}
+		}*/
 	}
 
 	/**

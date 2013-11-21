@@ -13,6 +13,8 @@ import java.io.IOException;
 //---------------------------------------------------------------------
 public class BSTBuilder
 {
+	private final int errorVal = 2;
+
 	private Debug debug;
 	private String inputFilename;
 	private Map<String, BST> trees = null;
@@ -55,41 +57,24 @@ public class BSTBuilder
 		int value = 0;
 		String lineIn;
 
-		/*
 		try
 		{
-			file = new BufferedReader(new FileReader(filename));
-			String line = "";
+			inputFile = new BufferedReader(new FileReader(inputFilename));
 
-			while(!eof)
-			{
-				Thread pop = null;
-				if(currThreads < numThreads)
-				{
-					//Adds one to the currently running threads counter
-					currThreads++;
+			lineIn = inputFile.readLine();
 
-					//Spawns a new thread
-					pop = new Thread(new PopulateWorker());
-
-					//Starts the new thread
-					pop.start();
-				}
-			}
-
-			//FIXME: Need a join here!
-			if(currThreads == 0)
-			{
-				file.close();
-			}
+			while(lineIn != null)
+			{	
+				System.out.println(lineIn);
+				lineIn = inputFile.readLine();
+			}	
 
 		}
 		catch(IOException e)
 		{
 			System.out.println("ERROR: file not found!");
-			System.exit(1);
+			System.exit(errorVal);
 		}
-		*/
 
 		/*while(!eof)
 		{

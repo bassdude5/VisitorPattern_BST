@@ -14,9 +14,7 @@ public class Driver
 
 	public static void main(String[] args)
 	{
-		BST tree1;
-		BST tree2;
-		BST tree3;
+		
 		
 		BSTBuilder treeBuilder;
 
@@ -26,14 +24,17 @@ public class Driver
 		//Parse the input and set the class variables
 		parseCommandLineInput(args);
 		
+		//Initialize the treeBuilder
+		treeBuilder = new BSTBuilder(debug, inputFilename);
+		//Create three trees 
+		treeBuilder.createTree("tree1");
+		treeBuilder.createTree("tree2");
+		treeBuilder.createTree("tree3");
 
-		//Use BSTBuilder to build 3 trees	
-		treeBuilder = new BSTBuilder(debug);
-
-		/*tree1 = new BST(debug);
-		tree2 = new BST(debug);
-		tree3 = new BST(debug);
-		*/
+		//Populate all of the trees from the input file
+		treeBuilder.populateAllTrees();
+		
+		
 
 		//Call inorder traversal to print the values from the three trees
 		//Call the visitor to print the sum of all the B-Numbers in the three trees
