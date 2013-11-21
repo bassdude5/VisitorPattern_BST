@@ -98,9 +98,9 @@ public class BST
 	**/
 	public void printPostOrder()
 	{
-		//1) 
-		//2)
-		//3)
+		//1) Traverse left subtree
+		//2) Traverse right subtree
+		//3) Visit root
 	}
 
 	/**
