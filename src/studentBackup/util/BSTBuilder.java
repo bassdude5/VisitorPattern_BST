@@ -65,27 +65,36 @@ public class BSTBuilder
 
 			while(lineIn != null)
 			{	
-				System.out.println(lineIn);
+				try
+				{
+					System.out.println(Integer.parseInt(lineIn));
+				}
+				catch(NumberFormatException e)
+				{
+					//Catch for integer parsing
+					System.out.println("ERROR: invalid line: \""
+					 + lineIn + "\" in input file: " + inputFilename);
+
+					System.exit(errorVal);
+				}
+
+			//Iterate through all trees in the Hash,
+			// calling insert on each tree
+			for (String key : trees.keySet()) 
+			{
+				//trees.get(key).insert(value);
+			}
+
 				lineIn = inputFile.readLine();
 			}	
 
 		}
 		catch(IOException e)
 		{
+			//Catch for no file or problem opening file
 			System.out.println("ERROR: file not found!");
 			System.exit(errorVal);
 		}
-
-		/*while(!eof)
-		{
-			//Readline from file
-			//Parse to integer
-			//call insert on all trees
-			for (String key : trees.keySet()) 
-			{
-				//trees.get(key).insert(value);
-			}
-		}*/
 	}
 
 	/**
