@@ -1,14 +1,19 @@
 package studentBackup.util;
-
+//---------------------------------------------------------------------
 import studentBackup.util.Debug;
 import studentBackup.bst.Node;
-
+import studentBackup.bst.BST;
+//---------------------------------------------------------------------
+import java.util.HashMap;
+import java.util.Map;
+import java.io.BufferedReader;
+//---------------------------------------------------------------------
 public class BSTBuilder
 {
 	private Debug debug;
 	private String inputFilename;
-	//private vector of trees
-	//private BufferedReader	
+	private Map<String, BST> trees = null;
+	private BufferedReader inputFile;
 
 	/**
 	*	Basic constructor
@@ -17,6 +22,7 @@ public class BSTBuilder
 	{
 		this.debug = debug;
 		this.inputFilename = null;
+		trees = new HashMap<String, BST>();
 	}
 
 	/**
@@ -26,18 +32,20 @@ public class BSTBuilder
 	{
 		this.debug = debug;
 		this.inputFilename = inputFilename;
+		trees = new HashMap<String, BST>();
 	}
 
 	/**
-	*	This method adds a tree to the tree builder
+	*	This method creates a tree in the tree
+	*	 builder instance
 	**/
-	public void addTree()
+	public void createTree(String key)
 	{
-		//Add a new tree to the vector of trees
+		trees.put(key, new BST(debug));	
 	}
 
 	/**
-	*	Populates all the current trees in the vector 
+	*	Populates all the current trees in the hash map
 	**/
 	public void populateAllTrees()
 	{
@@ -48,15 +56,16 @@ public class BSTBuilder
 	}
 
 	/**
-	*	Populates the single tree at the index given
+	*	Populates the single tree at the key given
 	**/
-	public void populateSingleTree(int index)
+	public void populateSingleTree(String key)
 	{
 
 	}
 
 	/**
-	*	This method prints all of the trees in the class vector
+	*	This method prints all of the trees contained 
+	*	 in the class hash map
 	**/
 	public void printAllTrees()
 	{
@@ -64,9 +73,25 @@ public class BSTBuilder
 	}
 
 	/**
-	*	This method prints a single tree at the index
+	*	This method prints a single tree at the key given
 	**/
-	public void printSingleTree(int index)
+	public void printSingleTree(String key)
+	{
+
+	}
+
+	/**
+	*	This method clears all trees
+	**/
+	public void clearAllTrees()
+	{
+
+	}
+
+	/**
+	*	This method clears the tree at the key given
+	**/
+	public void clearTreeAt(String key)
 	{
 
 	}

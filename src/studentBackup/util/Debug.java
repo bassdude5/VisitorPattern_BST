@@ -1,5 +1,6 @@
+//---------------------------------------------------------------------
 package studentBackup.util;
-
+//---------------------------------------------------------------------
 public class Debug
 {
 	private int debugVal;
@@ -37,4 +38,5 @@ public class Debug
 	{
 		this.debugVal = debugVal;
 	}
-}
+}//End of the Debug class
+//---------------------------------------------------------------------
