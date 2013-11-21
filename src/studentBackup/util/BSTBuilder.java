@@ -6,7 +6,10 @@ import studentBackup.bst.BST;
 //---------------------------------------------------------------------
 import java.util.HashMap;
 import java.util.Map;
+//---------------------------------------------------------------------
 import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 //---------------------------------------------------------------------
 public class BSTBuilder
 {
@@ -49,10 +52,55 @@ public class BSTBuilder
 	**/
 	public void populateAllTrees()
 	{
-		//Readline from file
-		//Parse to integer
-		//call insert on all trees
-		//read next line
+		int value = 0;
+		String lineIn;
+
+		/*
+		try
+		{
+			file = new BufferedReader(new FileReader(filename));
+			String line = "";
+
+			while(!eof)
+			{
+				Thread pop = null;
+				if(currThreads < numThreads)
+				{
+					//Adds one to the currently running threads counter
+					currThreads++;
+
+					//Spawns a new thread
+					pop = new Thread(new PopulateWorker());
+
+					//Starts the new thread
+					pop.start();
+				}
+			}
+
+			//FIXME: Need a join here!
+			if(currThreads == 0)
+			{
+				file.close();
+			}
+
+		}
+		catch(IOException e)
+		{
+			System.out.println("ERROR: file not found!");
+			System.exit(1);
+		}
+		*/
+
+		/*while(!eof)
+		{
+			//Readline from file
+			//Parse to integer
+			//call insert on all trees
+			for (String key : trees.keySet()) 
+			{
+				//trees.get(key).insert(value);
+			}
+		}*/
 	}
 
 	/**
@@ -69,7 +117,10 @@ public class BSTBuilder
 	**/
 	public void printAllTrees()
 	{
-
+		for (String key : trees.keySet()) 
+		{
+    			// ...
+		}
 	}
 
 	/**
@@ -93,7 +144,7 @@ public class BSTBuilder
 	**/
 	public void clearTreeAt(String key)
 	{
-
+		//(trees.get(key)) = null;
 	}
 
 	/**

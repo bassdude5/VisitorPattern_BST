@@ -6,7 +6,10 @@ import studentBackup.bst.BST;
 //---------------------------------------------------------------------
 import java.util.HashMap;
 import java.util.Map;
+//---------------------------------------------------------------------
 import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 //---------------------------------------------------------------------
 public class BSTBuilder
 {
@@ -49,10 +52,18 @@ public class BSTBuilder
 	**/
 	public void populateAllTrees()
 	{
-		//Readline from file
-		//Parse to integer
-		//call insert on all trees
-		//read next line
+		int value = 0;
+		String lineIn;
+		while(!eof)
+		{
+			//Readline from file
+			//Parse to integer
+			//call insert on all trees
+			for (String key : trees.keySet()) 
+			{
+				//trees.get(key).insert(value);
+			}
+		}
 	}
 
 	/**
@@ -69,7 +80,10 @@ public class BSTBuilder
 	**/
 	public void printAllTrees()
 	{
-
+		for (String key : trees.keySet()) 
+		{
+    			// ...
+		}
 	}
 
 	/**
@@ -93,7 +107,7 @@ public class BSTBuilder
 	**/
 	public void clearTreeAt(String key)
 	{
-
+		//(trees.get(key)) = null;
 	}
 
 	/**
