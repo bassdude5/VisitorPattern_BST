@@ -19,8 +19,7 @@ This program uses the following debug value scheme:
 0 - No debug value (basic output)
 1 - Print to stdout each time a constructor is called, and with what
      parameters the constructor was called with
-2 - 
-
+2 - Print to stdout each time a new tree is created
 
 ========================================================================
 Error Values:
@@ -28,10 +27,10 @@ Error Values:
 The following are the possible (non-standard) return values that can
 be returned from this program if there is a error caught:
 
-1 - 
-2 -
-3 -
-4 -
+1 - Driver error value
+2 - BSTBuilder error value
+3 - BST error value
+4 - Node error value
 
 ========================================================================
 Approach and Justifications:

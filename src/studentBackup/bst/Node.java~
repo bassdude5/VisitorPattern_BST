@@ -5,6 +5,7 @@ import studentBackup.util.Debug;
 //---------------------------------------------------------------------
 public class Node
 {
+	private final int errorVal = 4;
 	private Debug debug;
 	private int bNum;
 	private Node leftChild;

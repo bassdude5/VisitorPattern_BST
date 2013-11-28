@@ -6,6 +6,7 @@ import studentBackup.bst.Node;
 //---------------------------------------------------------------------
 public class BST
 {
+	private final int errorVal = 3;
 	private Debug debug;
 	private Node root;
 
