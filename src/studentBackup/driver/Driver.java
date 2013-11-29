@@ -6,7 +6,7 @@ import studentBackup.util.BSTBuilder;
 //---------------------------------------------------------------------
 public class Driver
 {
-	private static final int errorVal = 1;
+	private static final int ERRORVAL = 1;
 
 	//Constants used for tree traversal
 	private static final String PRE = "pre";
@@ -38,7 +38,7 @@ public class Driver
 		//Populate all of the trees from the input file
 		treeBuilder.populateAllTrees();
 
-		//treeBuilder.printSingleTree("tree1", IN);
+		treeBuilder.printSingleTree("tree1", IN);
 		//treeBuilder.printSingleTree("tree1", POST);
 		//treeBuilder.printSingleTree("tree1", PRE);
 
@@ -63,7 +63,7 @@ public class Driver
 		{
 			System.out.println("ERROR: Invalid number of"
 				+ " arguments!");
-			System.exit(errorVal);
+			System.exit(ERRORVAL);
 		}
 		//Sets the input filename to the first arg passed
 		inputFilename = args[0];
@@ -77,7 +77,7 @@ public class Driver
 		{
 			System.out.println("ERROR: UPDATE_VALUE is" +
 			" not a valid integer!");
-			System.exit(errorVal);
+			System.exit(ERRORVAL);
 		}
 
 		//Parse the debug value
@@ -89,7 +89,7 @@ public class Driver
 		{
 			System.out.println("ERROR: debug value is" +
 			" not a valid integer!");
-			System.exit(errorVal);
+			System.exit(ERRORVAL);
 		}
 	}
 }//End of Driver class

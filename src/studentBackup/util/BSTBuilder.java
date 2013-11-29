@@ -13,7 +13,7 @@ import java.io.IOException;
 //---------------------------------------------------------------------
 public class BSTBuilder
 {
-	private final int errorVal = 2;
+	private final int ERRORVAL = 2;
 
 	private Debug debug;
 	private String inputFilename;
@@ -96,7 +96,7 @@ public class BSTBuilder
 					System.out.println("ERROR: invalid line: \""
 					 + lineIn + "\" in input file: " + inputFilename);
 
-					System.exit(errorVal);
+					System.exit(ERRORVAL);
 				}
 			
 				//Iterate through all trees in the Hash,
@@ -118,7 +118,7 @@ public class BSTBuilder
 		{
 			//Catch for no file or problem opening file
 			System.out.println("ERROR: file not found!");
-			System.exit(errorVal);
+			System.exit(ERRORVAL);
 		}
 	}
 
