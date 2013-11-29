@@ -72,6 +72,14 @@ public class Node //implements ObserverInterface, SubjectInterface
 			", rightChild " + rightChild.getBNum() + "\n");
 		}
 	}
+
+	/**
+	*	
+	**/
+	/*public void accept(Visitor visitor)
+	{
+
+	}*/
 	
 	/**
 	*	This method is used to get the right child node	
