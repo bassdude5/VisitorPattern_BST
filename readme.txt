@@ -18,8 +18,9 @@ Debug Values:
 This program uses the following debug value scheme:
 0 - No debug value (basic output)
 1 - Print to stdout each time a constructor is called, and with what
-     parameters the constructor was called with
+     parameters the constructor was called with (excluding node class)
 2 - Print to stdout each time a new tree is created
+3 - Print to stdout each time a node constructor is called
 
 ========================================================================
 Error Values:

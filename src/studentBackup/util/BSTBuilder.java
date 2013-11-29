@@ -28,6 +28,13 @@ public class BSTBuilder
 		this.debug = debug;
 		this.inputFilename = null;
 		trees = new HashMap<String, BST>();
+
+		if(debug.getDebugVal() == 1)
+		{
+			System.out.println("BSTBuilder constructor called." 
+			+ "\nParameters: debugVal" + 
+			debug.getDebugVal() + "\n");
+		}
 	}
 
 	/**
@@ -38,6 +45,13 @@ public class BSTBuilder
 		this.debug = debug;
 		this.inputFilename = inputFilename;
 		trees = new HashMap<String, BST>();
+
+		if(debug.getDebugVal() == 1)
+		{
+			System.out.println("BSTBuilder constructor called." 
+			+ "\nParameters: debugVal" + debug.getDebugVal() 
+			+ ", inputFilename " + inputFilename + "\n");
+		}
 	}
 
 	/**
@@ -47,12 +61,18 @@ public class BSTBuilder
 	public void createTree(String key)
 	{
 		trees.put(key, new BST(debug));	
+
+		if(debug.getDebugVal() == 2)
+		{
+			System.out.println("Tree \"" + key +
+				 "\" created and added to BSTBuilder");
+		}
 	}
 
 	/**
 	*	Populates all the current trees in the hash map
 	**/
-	public void populateAllTrees() throws IOException
+	public void populateAllTrees()
 	{
 		BST temp;
 		int value = 0;
@@ -68,7 +88,7 @@ public class BSTBuilder
 			{	
 				try
 				{
-					System.out.println(Integer.parseInt(lineIn));
+					value = Integer.parseInt(lineIn);
 				}
 				catch(NumberFormatException e)
 				{
@@ -79,29 +99,26 @@ public class BSTBuilder
 					System.exit(errorVal);
 				}
 			
-			//Iterate through all trees in the Hash,
-			// calling insert on each tree
-			for (String key : trees.keySet()) 
-			{
-				temp = trees.get(key);
-				//Inserts 
-				temp.insert(temp.getRoot(), value);
-			}
+				//Iterate through all trees in the Hash,
+				// calling insert on each tree
+				for (String key : trees.keySet()) 
+				{
+					temp = trees.get(key);
+					//Insert
+					temp.insert(temp.getRoot(), value);
+				}
 
 				lineIn = inputFile.readLine();
-			}	
+			}
 
+			//Closes the input file
+			inputFile.close();	
 		}
 		catch(IOException e)
 		{
 			//Catch for no file or problem opening file
 			System.out.println("ERROR: file not found!");
 			System.exit(errorVal);
-		}
-		finally
-		{
-			//Closes the input file
-			inputFile.close();	
 		}
 	}
 
@@ -129,9 +146,28 @@ public class BSTBuilder
 	/**
 	*	This method prints a single tree at the key given
 	**/
-	public void printSingleTree(String key)
+	public void printSingleTree(String key, String order)
 	{
+		BST tempTree = trees.get(key);
 
+		if(order.equals("pre"))
+		{
+			System.out.println("Printing " + key 
+				+ " in preorder traversal");
+			tempTree.printPreOrder(tempTree.getRoot());
+		}
+		else if(order.equals("post"))
+		{
+			System.out.println("Printing " + key 
+				+ " in postorder traversal");
+			tempTree.printPostOrder(tempTree.getRoot());
+		}
+		else if(order.equals("in"))
+		{
+			System.out.println("Printing " + key 
+				+ " in inorder traversal");
+			tempTree.printInOrder(tempTree.getRoot());
+		}
 	}
 
 	/**

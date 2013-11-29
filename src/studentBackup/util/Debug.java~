@@ -38,5 +38,5 @@ public class Debug
 	{
 		this.debugVal = debugVal;
 	}
-}//
+}//End of the Debug class
 //---------------------------------------------------------------------

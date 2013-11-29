@@ -7,6 +7,12 @@ import studentBackup.util.BSTBuilder;
 public class Driver
 {
 	private static final int errorVal = 1;
+
+	//Constants used for tree traversal
+	private static final String PRE = "pre";
+	private static final String POST = "post";
+	private static final String IN = "in";	
+
 	private static Debug debug;
 	
 	private static String inputFilename;
@@ -14,8 +20,6 @@ public class Driver
 
 	public static void main(String[] args)
 	{
-		
-		
 		BSTBuilder treeBuilder;
 
 		//Initalize the debug class
@@ -32,12 +36,14 @@ public class Driver
 		treeBuilder.createTree("tree3");
 
 		//Populate all of the trees from the input file
-		//treeBuilder.populateAllTrees();
+		treeBuilder.populateAllTrees();
+
+		//treeBuilder.printSingleTree("tree1", IN);
+		//treeBuilder.printSingleTree("tree1", POST);
+		//treeBuilder.printSingleTree("tree1", PRE);
 
 		//Prints all tree names in the treeBuilder instance
-		treeBuilder.printTreeNames();
-		
-		
+		//treeBuilder.printTreeNames();
 
 		//Call inorder traversal to print the values from the three trees
 		//Call the visitor to print the sum of all the B-Numbers in the three trees

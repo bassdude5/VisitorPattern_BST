@@ -12,7 +12,7 @@ public class Node
 	private Node rightChild;
 
 	/**
-	*	This is the empty class constructor
+	*	This is the "empty" class constructor
 	**/
 	public Node(Debug debug)
 	{
@@ -20,6 +20,13 @@ public class Node
 		this.leftChild = null;
 		this.rightChild = null;
 		this.debug = debug;
+
+		if(debug.getDebugVal() == 3)
+		{
+			System.out.println("Basic Node constructor called." 
+			+ "\nParameters: debugVal" +
+			debug.getDebugVal() + "\n");
+		}
 	}
 	
 	/**
@@ -31,6 +38,14 @@ public class Node
 		this.leftChild = null;
 		this.rightChild = null;
 		this.debug = debug;
+
+		if(debug.getDebugVal() == 3)
+		{
+			System.out.println("Node constructor called with" +
+			" no specified children nodes." 
+			+ "\nParameters: debugVal" +
+			debug.getDebugVal() + ", bNum " + bNum  + "\n");
+		}
 	}
 
 	/**
@@ -43,6 +58,16 @@ public class Node
 		this.leftChild = null;
 		rightChild = null;
 		this.debug = debug;
+
+		if(debug.getDebugVal() == 3)
+		{
+			System.out.println("Node constructor called with" +
+			" no specified children nodes." 
+			+ "\nParameters: debugVal" +
+			debug.getDebugVal() + ", bNum " + bNum  +
+			", leftChild " + leftChild.getBNum() +
+			", rightChild " + rightChild.getBNum() + "\n");
+		}
 	}
 	
 	/**

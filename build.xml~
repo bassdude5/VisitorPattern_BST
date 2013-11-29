@@ -51,11 +51,11 @@
   <target name="run" depends="jar">
         <java jar="${BUILD}/jar/studentBackup.jar"  fork="true">
 	  <!-- Input Filename: -->
-          <arg value="MyAllTypes.txt"/>
+          <arg value="bstInput.txt"/>
 	  <!-- UPDATE_VALUE: -->
 	  <arg value="1"/>
 	  <!-- Debug Value: -->
-	  <arg value="0"/>
+	  <arg value="1"/>
         </java>
 	
     </target>
