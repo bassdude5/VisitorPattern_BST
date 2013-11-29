@@ -32,8 +32,8 @@ public class Driver
 		treeBuilder = new BSTBuilder(debug, inputFilename);
 		//Create three trees 
 		treeBuilder.createTree("tree1");
-		treeBuilder.createTree("tree2");
-		treeBuilder.createTree("tree3");
+		treeBuilder.createTree("backup1");
+		treeBuilder.createTree("backup2");
 
 		//Populate all of the trees from the input file
 		treeBuilder.populateAllTrees();

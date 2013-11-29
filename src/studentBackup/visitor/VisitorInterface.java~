@@ -1,0 +1,7 @@
+package studentBackup.visitor;
+
+public interface Visitor
+{
+	//FIXME: Needs params
+	public void visit(); 
+}
