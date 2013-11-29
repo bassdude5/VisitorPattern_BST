@@ -55,7 +55,7 @@
 	  <!-- UPDATE_VALUE: -->
 	  <arg value="1"/>
 	  <!-- Debug Value: -->
-	  <arg value="1"/>
+	  <arg value="3"/>
         </java>
 	
     </target>

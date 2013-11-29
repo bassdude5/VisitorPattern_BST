@@ -3,7 +3,10 @@ package studentBackup.bst;
 //---------------------------------------------------------------------
 import studentBackup.util.Debug;
 //---------------------------------------------------------------------
-public class Node
+import studentBackup.observer.ObserverInterface; 
+import studentBackup.observer.SubjectInterface;
+//---------------------------------------------------------------------
+public class Node //implements ObserverInterface, SubjectInterface
 {
 	private final int ERRORVAL = 4;
 	private Debug debug;

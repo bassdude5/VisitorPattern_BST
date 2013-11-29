@@ -70,6 +70,79 @@ public class BSTBuilder
 	}
 
 	/**
+	*	This method prints all of the trees contained 
+	*	 in the class hash map
+	**/
+	public void printAllTrees(String order)
+	{
+		//Iterates through all trees in the hashmap
+		for (String key : trees.keySet()) 
+		{
+			printSingleTree(key, order);
+		}
+	}
+
+	/**
+	*	This method prints a single tree at the key given
+	**/
+	public void printSingleTree(String key, String order)
+	{
+		BST tempTree = trees.get(key);
+
+		if(order.equals("pre"))
+		{
+			System.out.println("Printing " + key 
+				+ " in preorder traversal");
+			tempTree.printPreOrder(tempTree.getRoot());
+			System.out.println("\n");
+		
+		}
+		else if(order.equals("post"))
+		{
+			System.out.println("Printing " + key 
+				+ " in postorder traversal");
+			tempTree.printPostOrder(tempTree.getRoot());
+			System.out.println("\n");
+		}
+		else if(order.equals("in"))
+		{
+			System.out.println("Printing " + key 
+				+ " in inorder traversal");
+			tempTree.printInOrder(tempTree.getRoot());
+			System.out.println("\n");
+		}
+	}
+
+	/**
+	*	This method prints the names of all trees
+	*	 that this class currently contains
+	**/
+	public void printTreeNames()
+	{
+		//Iterates through all trees in the hashmap
+		for (String key : trees.keySet()) 
+		{
+			System.out.println(key);	
+		}	
+	}
+
+	/**
+	*	This method clears all trees
+	**/
+	public void clearAllTrees()
+	{
+
+	}
+
+	/**
+	*	This method clears the tree at the key given
+	**/
+	public void clearTreeAt(String key)
+	{
+		//(trees.get(key)) = null;
+	}
+
+	/**
 	*	Populates all the current trees in the hash map
 	**/
 	public void populateAllTrees()
@@ -127,76 +200,47 @@ public class BSTBuilder
 	**/
 	public void populateSingleTree(String key)
 	{
+		BST temp;
+		int value = 0;
+		String lineIn;
 
-	}
-
-	/**
-	*	This method prints all of the trees contained 
-	*	 in the class hash map
-	**/
-	public void printAllTrees()
-	{
-		//Iterates through all trees in the hashmap
-		for (String key : trees.keySet()) 
+		try
 		{
+			inputFile = new BufferedReader(new FileReader(inputFilename));
+
+			lineIn = inputFile.readLine();
+
+			while(lineIn != null)
+			{	
+				try
+				{
+					value = Integer.parseInt(lineIn);
+				}
+				catch(NumberFormatException e)
+				{
+					//Catch for integer parsing
+					System.out.println("ERROR: invalid line: \""
+					 + lineIn + "\" in input file: " + inputFilename);
+
+					System.exit(ERRORVAL);
+				}
 			
+				temp = trees.get(key);
+				//Insert
+				temp.insert(temp.getRoot(), value);
+
+				lineIn = inputFile.readLine();
+			}
+
+			//Closes the input file
+			inputFile.close();	
 		}
-	}
-
-	/**
-	*	This method prints a single tree at the key given
-	**/
-	public void printSingleTree(String key, String order)
-	{
-		BST tempTree = trees.get(key);
-
-		if(order.equals("pre"))
+		catch(IOException e)
 		{
-			System.out.println("Printing " + key 
-				+ " in preorder traversal");
-			tempTree.printPreOrder(tempTree.getRoot());
+			//Catch for no file or problem opening file
+			System.out.println("ERROR: file not found!");
+			System.exit(ERRORVAL);
 		}
-		else if(order.equals("post"))
-		{
-			System.out.println("Printing " + key 
-				+ " in postorder traversal");
-			tempTree.printPostOrder(tempTree.getRoot());
-		}
-		else if(order.equals("in"))
-		{
-			System.out.println("Printing " + key 
-				+ " in inorder traversal");
-			tempTree.printInOrder(tempTree.getRoot());
-		}
-	}
-
-	/**
-	*	This method prints the names of all trees
-	*	 that this class currently contains
-	**/
-	public void printTreeNames()
-	{
-		//Iterates through all trees in the hashmap
-		for (String key : trees.keySet()) 
-		{
-			System.out.println(key);	
-		}	
-	}
-
-	/**
-	*	This method clears all trees
-	**/
-	public void clearAllTrees()
-	{
-
-	}
-
-	/**
-	*	This method clears the tree at the key given
-	**/
-	public void clearTreeAt(String key)
-	{
-		//(trees.get(key)) = null;
 	}
 
 	/**

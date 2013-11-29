@@ -101,6 +101,7 @@ public class BST
 		//}
 
 		//NEED TO RECALCULATE THE SIZE OF BOTH SUBTREES
+		//FIXME: Finish this method
 	}
 
 	/**
@@ -108,7 +109,7 @@ public class BST
 	**/
 	public void visit()
 	{
-
+		//FIXME: Needs code
 	}
 
 
@@ -119,7 +120,7 @@ public class BST
 	public void printPreOrder(Node root)
 	{
 		//1) Visit root
-		System.out.println(root.getBNum());
+		System.out.print(root.getBNum() + " ");
 
 		//2) Traverse left subtree	
 		if(root.getLeftChild() != null)
@@ -147,7 +148,7 @@ public class BST
 		}
 
 		//2) Visit root
-		System.out.println(root.getBNum());
+		System.out.print(root.getBNum() + " ");
 
 		//3) Traverse right subtree
 		if(root.getRightChild() != null)
@@ -175,7 +176,7 @@ public class BST
 		}
 
 		//3) Visit root
-		System.out.println(root.getBNum());
+		System.out.print(root.getBNum() + " ");
 	}
 
 	/**

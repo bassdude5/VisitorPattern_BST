@@ -38,12 +38,17 @@ public class Driver
 		//Populate all of the trees from the input file
 		treeBuilder.populateAllTrees();
 
-		treeBuilder.printSingleTree("tree1", IN);
+		//treeBuilder.printSingleTree("tree1", IN);
 		//treeBuilder.printSingleTree("tree1", POST);
 		//treeBuilder.printSingleTree("tree1", PRE);
 
 		//Prints all tree names in the treeBuilder instance
-		//treeBuilder.printTreeNames();
+		System.out.println("Trees in BSTBuilder:");
+		treeBuilder.printTreeNames();
+		System.out.println();
+
+		//Prints all of the trees in BSTBuilder inorder traversal
+		treeBuilder.printAllTrees(IN);
 
 		//Call inorder traversal to print the values from the three trees
 		//Call the visitor to print the sum of all the B-Numbers in the three trees
