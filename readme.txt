@@ -32,6 +32,7 @@ be returned from this program if there is a error caught:
 2 - BSTBuilder error value
 3 - BST error value
 4 - Node error value
+5 - Visitor error value
 
 ========================================================================
 Approach and Justifications:

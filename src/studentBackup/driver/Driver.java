@@ -47,14 +47,15 @@ public class Driver
 		treeBuilder.printTreeNames();
 		System.out.println();
 
-		//Prints all of the trees in BSTBuilder inorder traversal
+		//Call inorder traversal to print the values from the three trees
 		treeBuilder.printAllTrees(IN);
 
-		//Call inorder traversal to print the values from the three trees
+
 		//Call the visitor to print the sum of all the B-Numbers in the three trees
 		//Call the visitor to update all the nodes with UPDATE_VALUE
 		//Call the inorder traversal to print the values from the three trees
-		//Call the visitor to print the sume of all the B-Numbers in the three trees
+		//treeBuilder.printAllTrees(IN);
+		//Call the visitor to print the sum of all the B-Numbers in the three trees
 	}
 
 	/**

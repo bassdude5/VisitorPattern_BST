@@ -19,6 +19,7 @@ public class BSTBuilder
 	private String inputFilename;
 	private Map<String, BST> trees = null;
 	private BufferedReader inputFile;
+	private Boolean parentTreeRegistered = false;
 
 	/**
 	*	Basic constructor
@@ -66,6 +67,25 @@ public class BSTBuilder
 		{
 			System.out.println("Tree \"" + key +
 				 "\" created and added to BSTBuilder");
+		}
+	}
+
+	/**
+	*
+	**/
+	public void setParentTree()
+	{
+		if(parentTreeRegistered == false)
+		{
+			parentTreeRegistered = true;
+		}
+	}
+
+	public void unsetParentTree()
+	{
+		if(parentTreeRegistered == true)
+		{
+			parentTreeRegistered = false;
 		}
 	}
 
@@ -127,19 +147,23 @@ public class BSTBuilder
 	}
 
 	/**
-	*	This method clears all trees
+	*	This method clears all trees from the hashmap
 	**/
 	public void clearAllTrees()
 	{
-
+		for (String key : trees.keySet()) 
+		{
+			trees.remove(key);	
+		}	
 	}
 
 	/**
-	*	This method clears the tree at the key given
+	*	This method clears the tree at the key given from 
+	*	 the hashmap
 	**/
 	public void clearTreeAt(String key)
 	{
-		//(trees.get(key)) = null;
+		trees.remove(key);
 	}
 
 	/**

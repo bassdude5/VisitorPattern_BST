@@ -105,11 +105,11 @@ public class BST
 	}
 
 	/**
-	*
+	*	
 	**/
-	public void visit()
+	public void accept(Visitor visitor)
 	{
-		//FIXME: Needs code
+
 	}
 
 

@@ -1,6 +1,6 @@
 package studentBackup.observer;
 
-public interface Observer 
+public interface ObserverInterface 
 {
-	public void update(int bNum);
+	public void update(int num);
 }

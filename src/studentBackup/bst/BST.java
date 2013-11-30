@@ -3,6 +3,7 @@ package studentBackup.bst;
 //---------------------------------------------------------------------
 import studentBackup.util.Debug;
 import studentBackup.bst.Node;
+import studentBackup.visitor.Visitor;
 //---------------------------------------------------------------------
 public class BST
 {
@@ -105,11 +106,11 @@ public class BST
 	}
 
 	/**
-	*
+	*	
 	**/
-	public void visit()
+	public void accept(Visitor visitor)
 	{
-		//FIXME: Needs code
+
 	}
 
 

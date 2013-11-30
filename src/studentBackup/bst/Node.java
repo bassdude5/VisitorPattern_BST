@@ -6,13 +6,17 @@ import studentBackup.util.Debug;
 import studentBackup.observer.ObserverInterface; 
 import studentBackup.observer.SubjectInterface;
 //---------------------------------------------------------------------
-public class Node //implements ObserverInterface, SubjectInterface
+import java.util.Vector;
+//---------------------------------------------------------------------
+public class Node implements ObserverInterface, SubjectInterface
 {
 	private final int ERRORVAL = 4;
 	private Debug debug;
 	private int bNum;
 	private Node leftChild;
 	private Node rightChild;
+
+	private Vector<ObserverInterface> observersVector;
 
 	/**
 	*	This is the "empty" class constructor
@@ -23,6 +27,8 @@ public class Node //implements ObserverInterface, SubjectInterface
 		this.leftChild = null;
 		this.rightChild = null;
 		this.debug = debug;
+
+		observersVector = new Vector<ObserverInterface>();
 
 		if(debug.getDebugVal() == 3)
 		{
@@ -41,6 +47,8 @@ public class Node //implements ObserverInterface, SubjectInterface
 		this.leftChild = null;
 		this.rightChild = null;
 		this.debug = debug;
+
+		observersVector = new Vector<ObserverInterface>();
 
 		if(debug.getDebugVal() == 3)
 		{
@@ -62,6 +70,8 @@ public class Node //implements ObserverInterface, SubjectInterface
 		rightChild = null;
 		this.debug = debug;
 
+		observersVector = new Vector<ObserverInterface>();
+
 		if(debug.getDebugVal() == 3)
 		{
 			System.out.println("Node constructor called with" +
@@ -73,14 +83,35 @@ public class Node //implements ObserverInterface, SubjectInterface
 		}
 	}
 
-	/**
-	*	
-	**/
-	/*public void accept(Visitor visitor)
-	{
 
-	}*/
-	
+	//---------------------------------------------------------------------
+	/**
+	*	Observer method
+	*
+	**/
+	public void update(int num)
+	{
+		bNum = bNum + num;
+	}
+
+	public void registerObserver(ObserverInterface o)
+	{
+		//Register observer will take two nodes(?) from the other trees
+		observersVector.add(o);
+	}
+
+	public void removeObserver(ObserverInterface o)
+	{
+		//Removes the observer from the list of observers
+		observersVector.removeElement(o);
+	}
+
+	public void notifyObservers(int num)
+	{
+		
+	}
+	//---------------------------------------------------------------------
+
 	/**
 	*	This method is used to get the right child node	
 	*	@return Returns the right child node
