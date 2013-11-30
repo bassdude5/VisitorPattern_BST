@@ -94,16 +94,30 @@ public class Node implements ObserverInterface, SubjectInterface
 		bNum = bNum + num;
 	}
 
+	/**
+	*	This method registers a single observer with the current node
+	**/
 	public void registerObserver(ObserverInterface o)
 	{
-		//Register observer will take two nodes(?) from the other trees
 		observersVector.add(o);
 	}
 
+	/**
+	*	This method removes a single observer from the observers
+	*	 vector
+	**/
 	public void removeObserver(ObserverInterface o)
 	{
 		//Removes the observer from the list of observers
 		observersVector.removeElement(o);
+	}
+
+	/**
+	*	This method removes all of the observers 
+	**/
+	public void removeAllObservers()
+	{
+		observersVector.clear();	
 	}
 
 	public void notifyObservers(int num)

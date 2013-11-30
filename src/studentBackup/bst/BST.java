@@ -113,7 +113,6 @@ public class BST
 
 	}
 
-
 	/**
 	*	This method visits and prints the b-number for each
 	*	 node in the tree, by traversing the tree in pre-order

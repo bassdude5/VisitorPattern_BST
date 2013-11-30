@@ -3,9 +3,11 @@ package studentBackup.util;
 import studentBackup.util.Debug;
 import studentBackup.bst.Node;
 import studentBackup.bst.BST;
+import studentBackup.observer.ObserverInterface;
 //---------------------------------------------------------------------
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Vector;
 //---------------------------------------------------------------------
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -14,12 +16,12 @@ import java.io.IOException;
 public class BSTBuilder
 {
 	private final int ERRORVAL = 2;
-
 	private Debug debug;
 	private String inputFilename;
 	private Map<String, BST> trees = null;
 	private BufferedReader inputFile;
 	private Boolean parentTreeRegistered = false;
+	private String parentTreeName = "";
 
 	/**
 	*	Basic constructor
@@ -71,21 +73,145 @@ public class BSTBuilder
 	}
 
 	/**
-	*
+	*	Sets the parent (subject) tree and registers
+	*	 all other trees currently in the builder with the parent tree's
+	*	 nodes
 	**/
-	public void setParentTree()
+	public void setParentTree(String parentKey)
 	{
+		Vector<Node> treeNodes = new Vector<Node>();
+
 		if(parentTreeRegistered == false)
 		{
-			parentTreeRegistered = true;
+			if(trees.containsKey(parentKey) == true)
+			{
+			
+				//Iterates through all trees in the hashmap
+				for (String key : trees.keySet()) 
+				{
+					//Adds the root nodes to the vector 
+					// ONLY if they are not the parent tree 
+					// root node
+					if(key.equals(parentKey) == false)
+					{
+						treeNodes.add(trees.get(key).getRoot());
+					}
+				}
+
+				//Registers all nodes in the tree			
+				registerTree(trees.get(parentKey).getRoot(), treeNodes);
+				
+				parentTreeName = parentKey;				
+				parentTreeRegistered = true;
+			}
+			else
+			{
+				System.out.println("ERROR: Invalid tree name!");
+			}
+		}
+		else
+		{
+			System.out.println("ERROR: Parent tree already setup!");
 		}
 	}
 
+	/**
+	*	Registers the node and its subtree's observers with 
+	*	 all other corresponding nodes in all other trees
+	**/
+	private void registerTree(Node n1, Vector<Node> treeNodes)
+	{
+		Vector<Node> rightTreeNodes = new Vector<Node>();
+		Vector<Node> leftTreeNodes = new Vector<Node>();
+
+		if(n1 != null)
+		{
+			for(int i = 0; i < treeNodes.size(); i++)
+			{
+				n1.registerObserver((ObserverInterface) treeNodes.get(i));
+
+				if(treeNodes.get(i).getRightChild() != null)
+				{
+					rightTreeNodes.add(treeNodes.get(i).getRightChild());
+				}
+				if(treeNodes.get(i).getLeftChild() != null)
+				{
+					leftTreeNodes.add(treeNodes.get(i).getLeftChild());
+				}
+			}
+
+			if(n1.getRightChild() != null)
+			{
+				registerTree(n1.getRightChild(), rightTreeNodes);
+			}
+
+			if(n1.getLeftChild() != null)
+			{
+				registerTree(n1.getLeftChild(), leftTreeNodes);
+			}
+		}
+	}
+
+	/**
+	*	This method returns the name of the current parent tree
+	**/
+	public String getParentTreeName()
+	{
+		if(parentTreeRegistered == true)
+		{
+			return parentTreeName;
+		}
+		else
+		{
+			System.out.println("ERROR: No parent currently set");
+			return null;
+		}
+	}
+
+	/**
+	*	Unsets the parent tree, removing all the connections between
+	*	 it and all other trees and resets all flags.
+	**/
 	public void unsetParentTree()
 	{
 		if(parentTreeRegistered == true)
 		{
+			BST tempTree = trees.get(parentTreeName);
+			
+			//Deregister all nodes in the tree			
+			deregisterTree(tempTree.getRoot());
+			
+			//Set the parentTree name to empty
+			parentTreeName = "";
+			//Set the parentTreeRegistered flag to false,
+			// meaning there is currently no parent tree
 			parentTreeRegistered = false;
+		}
+		else
+		{
+			System.out.println("ERROR: No parent tree"
+			 + " currently registered!");
+		}
+	}
+
+	/**
+	*	Recursive method that takes a node in, removes all 
+	*	 observers, and then does the same for all of its children
+	**/
+	private void deregisterTree(Node n1)
+	{
+		if(n1 != null)
+		{
+			n1.removeAllObservers();
+		
+			if(n1.getRightChild() != null)
+			{
+				deregisterTree(n1.getRightChild());
+			}
+			if(n1.getLeftChild() != null)
+			{
+				deregisterTree(n1.getLeftChild());
+			}
 		}
 	}
 

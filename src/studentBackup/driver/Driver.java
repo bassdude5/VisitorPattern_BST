@@ -38,9 +38,9 @@ public class Driver
 		//Populate all of the trees from the input file
 		treeBuilder.populateAllTrees();
 
-		//treeBuilder.printSingleTree("tree1", IN);
-		//treeBuilder.printSingleTree("tree1", POST);
-		//treeBuilder.printSingleTree("tree1", PRE);
+		//Sets the parent tree to be tree1
+		//(registers the observers)
+		treeBuilder.setParentTree("tree1");
 
 		//Prints all tree names in the treeBuilder instance
 		System.out.println("Trees in BSTBuilder:");
