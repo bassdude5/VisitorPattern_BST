@@ -91,12 +91,9 @@ public class Node implements ObserverInterface, SubjectInterface
 	**/
 	public void update(int num)
 	{
-		for(int i = 0; i < observersVector.size(); i++)
-		{
-			//observersVector.get(i).setBNum(observersVector.get(i).getBNum() + num);
-		}
+		bNum = bNum + num;
 	}
-
+	//---------------------------------------------------------------------
 	/**
 	*	This method registers a single observer with the current node
 	**/
@@ -125,7 +122,11 @@ public class Node implements ObserverInterface, SubjectInterface
 
 	public void notifyObservers(int num)
 	{
-		
+		for(int i = 0; i < observersVector.size(); i++)
+		{
+			//System.out.println(observersVector.get(i));
+			observersVector.get(i).update(num);
+		}
 	}
 	//---------------------------------------------------------------------
 

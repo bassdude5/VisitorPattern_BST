@@ -67,6 +67,8 @@ public class Visitor implements VisitorInterface
 		if(root != null)
 		{
 			root.setBNum(root.getBNum() + updateValue);
+
+			root.notifyObservers(updateValue);
 			
 			if(root.getRightChild() != null)
 			{
