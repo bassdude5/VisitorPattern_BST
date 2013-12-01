@@ -41,7 +41,7 @@ public class BSTBuilder
 	}
 
 	/**
-	*	Constructor with filename passed to object
+	*	Constructor with filename passed to constructor
 	**/
 	public BSTBuilder(Debug debug, String inputFilename)
 	{
@@ -126,6 +126,8 @@ public class BSTBuilder
 
 		if(n1 != null)
 		{
+			//Adds all right and left tree nodes to the right and left
+			// tree node vectors
 			for(int i = 0; i < treeNodes.size(); i++)
 			{
 				n1.registerObserver((ObserverInterface) treeNodes.get(i));
@@ -154,6 +156,7 @@ public class BSTBuilder
 
 	/**
 	*	This method returns the name of the current parent tree
+	*	@return Returns the parent tree name as a string
 	**/
 	public String getParentTreeName()
 	{
@@ -163,7 +166,7 @@ public class BSTBuilder
 		}
 		else
 		{
-			System.out.println("ERROR: No parent currently set");
+			System.out.println("ERROR: No parent tree currently set");
 			return null;
 		}
 	}
@@ -431,6 +434,7 @@ public class BSTBuilder
 
 	/**
 	*	This is the getter for the filename
+	*	@return Returns the input filename
 	**/
 	public String getInputFilename()
 	{

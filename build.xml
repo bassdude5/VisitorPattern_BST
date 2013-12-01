@@ -53,7 +53,7 @@
 	  <!-- Input Filename: -->
           <arg value="bstInput.txt"/>
 	  <!-- UPDATE_VALUE: -->
-	  <arg value="1"/>
+	  <arg value="10"/>
 	  <!-- Debug Value: -->
 	  <arg value="0"/>
         </java>

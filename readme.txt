@@ -37,7 +37,9 @@ be returned from this program if there is a error caught:
 ========================================================================
 Approach and Justifications:
 ========================================================================
-
+I implemented the project as close to as what Prof. Madhu wanted as I 
+could get. I added onto the BSTBuilder class with some extra options for 
+using and configuring trees just from personal interest. 
 
 ========================================================================
 Slack days:

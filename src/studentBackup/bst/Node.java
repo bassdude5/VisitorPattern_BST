@@ -183,5 +183,5 @@ public class Node implements ObserverInterface, SubjectInterface
 		this.bNum = bNum;
 	}
 
-}//End of class node
+}//End of class Node
 //---------------------------------------------------------------------

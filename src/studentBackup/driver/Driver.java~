@@ -37,7 +37,7 @@ public class Driver
 
 		//Initialize the visitor class
 		visitNodes = new Visitor(debug);
-
+		//Formatting line
 		printLine(50, '=');
 
 		//Create three trees 
@@ -55,10 +55,12 @@ public class Driver
 		//Prints all tree names in the treeBuilder instance
 		System.out.println("Trees in BSTBuilder:");
 		treeBuilder.printTreeNames();
+		//Formatting line
 		printLine(50, '-');
 
 		//Call inorder traversal to print the values from the three trees
 		treeBuilder.printAllTrees(IN);
+		//Formatting line
 		printLine(50, '-');
 
 		//Call the visitor to print the sum of all the B-Numbers in the three trees
@@ -70,10 +72,12 @@ public class Driver
 
 		//Call the inorder traversal to print the values from the three trees
 		treeBuilder.printAllTrees(IN);
+		//Formatting line
 		printLine(50, '-');
 
 		//Call the visitor to print the sum of all the B-Numbers in the three trees
 		sumTrees(treeBuilder, visitNodes);
+		//Formatting line
 		printLine(50, '=');
 
 	}
@@ -119,6 +123,9 @@ public class Driver
 		}
 	}
 
+	/**
+	*	Prints out the tree sums to stdout
+	**/
 	private static void sumTrees(BSTBuilder treeBuilder, VisitorInterface visitNodes)
 	{
 		System.out.println("Sum of tree \"tree1\" is: " + 
@@ -132,6 +139,9 @@ public class Driver
 
 	}
 
+	/**
+	*	
+	**/
 	private static void printLine(int length, char c)
 	{
 		for(int i = 0; i < length; i++)
