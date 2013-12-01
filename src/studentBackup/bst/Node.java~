@@ -91,7 +91,10 @@ public class Node implements ObserverInterface, SubjectInterface
 	**/
 	public void update(int num)
 	{
-		bNum = bNum + num;
+		for(int i = 0; i < observersVector.size(); i++)
+		{
+			//observersVector.get(i).setBNum(observersVector.get(i).getBNum() + num);
+		}
 	}
 
 	/**

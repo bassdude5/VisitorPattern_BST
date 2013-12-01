@@ -4,6 +4,7 @@ package studentBackup.bst;
 import studentBackup.util.Debug;
 import studentBackup.bst.Node;
 import studentBackup.visitor.Visitor;
+import studentBackup.visitor.VisitorInterface;
 //---------------------------------------------------------------------
 public class BST
 {
@@ -106,11 +107,20 @@ public class BST
 	}
 
 	/**
-	*	
+	*	Accept method for the tree sum
+	*	@return Returns the sum of the tree
 	**/
-	public void accept(Visitor visitor)
+	public int accept(VisitorInterface visitor)
 	{
+		return visitor.visit(root);
+	}
 
+	/**
+	*	Accept method for the addition of updateValue to the tree
+	**/
+	public void accept(VisitorInterface visitor, int updateValue)
+	{
+		visitor.visit(root, updateValue);
 	}
 
 	/**

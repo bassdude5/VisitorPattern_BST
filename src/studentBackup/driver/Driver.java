@@ -3,6 +3,8 @@ package studentBackup.driver;
 import studentBackup.util.Debug;
 import studentBackup.bst.BST;
 import studentBackup.util.BSTBuilder;
+import studentBackup.visitor.Visitor;
+import studentBackup.visitor.VisitorInterface;
 //---------------------------------------------------------------------
 public class Driver
 {
@@ -21,15 +23,23 @@ public class Driver
 	public static void main(String[] args)
 	{
 		BSTBuilder treeBuilder;
+		VisitorInterface visitNodes;
 
 		//Initalize the debug class
 		debug = new Debug();
 
 		//Parse the input and set the class variables
+		//NOTE: This includes the initialization of the debug class
 		parseCommandLineInput(args);
 		
 		//Initialize the treeBuilder
 		treeBuilder = new BSTBuilder(debug, inputFilename);
+
+		//Initialize the visitor class
+		visitNodes = new Visitor(debug);
+
+		printLine(50, '=');
+
 		//Create three trees 
 		treeBuilder.createTree("tree1");
 		treeBuilder.createTree("backup1");
@@ -45,24 +55,34 @@ public class Driver
 		//Prints all tree names in the treeBuilder instance
 		System.out.println("Trees in BSTBuilder:");
 		treeBuilder.printTreeNames();
-		System.out.println();
+		printLine(50, '-');
 
 		//Call inorder traversal to print the values from the three trees
 		treeBuilder.printAllTrees(IN);
-
+		printLine(50, '-');
 
 		//Call the visitor to print the sum of all the B-Numbers in the three trees
+		sumTrees(treeBuilder, visitNodes);
+		printLine(50, '-');
+
 		//Call the visitor to update all the nodes with UPDATE_VALUE
+		treeBuilder.getTree(treeBuilder.getParentTreeName()).accept(visitNodes, UPDATE_VALUE);		
+
 		//Call the inorder traversal to print the values from the three trees
-		//treeBuilder.printAllTrees(IN);
+		treeBuilder.printAllTrees(IN);
+		printLine(50, '-');
+
 		//Call the visitor to print the sum of all the B-Numbers in the three trees
+		sumTrees(treeBuilder, visitNodes);
+		printLine(50, '=');
+
 	}
 
 	/**
 	*	This method parses all command line arguments 
 	*	 and sets the private class variables appropriately
 	**/
-	private static final void parseCommandLineInput(String[] args)
+	private static void parseCommandLineInput(String[] args)
 	{
 		//Checks that the number of arguments passed is correct
 		if(args.length != 3)
@@ -98,5 +118,28 @@ public class Driver
 			System.exit(ERRORVAL);
 		}
 	}
+
+	private static void sumTrees(BSTBuilder treeBuilder, VisitorInterface visitNodes)
+	{
+		System.out.println("Sum of tree \"tree1\" is: " + 
+			treeBuilder.getTree("tree1").accept(visitNodes));
+
+		System.out.println("Sum of tree \"backup1\" is: " + 
+			treeBuilder.getTree("backup1").accept(visitNodes));
+
+		System.out.println("Sum of tree \"backup2\" is: " + 
+			treeBuilder.getTree("backup2").accept(visitNodes) + "\n");
+
+	}
+
+	private static void printLine(int length, char c)
+	{
+		for(int i = 0; i < length; i++)
+		{	
+			System.out.print(c);
+		}
+		System.out.println();		
+	}
+
 }//End of Driver class
 //---------------------------------------------------------------------

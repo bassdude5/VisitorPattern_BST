@@ -269,7 +269,8 @@ public class BSTBuilder
 		for (String key : trees.keySet()) 
 		{
 			System.out.println(key);	
-		}	
+		}
+		System.out.println();	
 	}
 
 	/**
@@ -391,6 +392,33 @@ public class BSTBuilder
 			System.out.println("ERROR: file not found!");
 			System.exit(ERRORVAL);
 		}
+	}
+
+	/**
+	*	This method returns a binary search tree at the key passed
+	*	@return Returns a binary search tree corresponding to the key passed
+	**/
+	public BST getTree(String key)
+	{
+		BST temp = null;
+
+		if(key != null)
+		{
+			if(trees.containsKey(key) == true)
+			{
+				temp = trees.get(key);
+			}
+			else
+			{
+				System.out.println("ERROR: No tree currently" +
+					" associated with name: \"" + key + "\"");
+			}
+		}
+		else
+		{
+			System.out.println("ERROR: Cannot get tree with null name");
+		}
+		return temp;
 	}
 
 	/**
