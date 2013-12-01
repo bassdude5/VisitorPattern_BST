@@ -1,7 +1,0 @@
-package studentRecords.util.VisitorInterface;
-
-public class VisitorInterface
-{
-	//Add visit methods as neccesary
-	//public void visit(...);
-}

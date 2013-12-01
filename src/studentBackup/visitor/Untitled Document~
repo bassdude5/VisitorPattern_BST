@@ -1,6 +1,0 @@
-package studentBackup.visitor;
-
-public class Visitor implements VisitorInterface
-{
-
-}
